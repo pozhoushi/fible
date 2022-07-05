@@ -1,26 +1,29 @@
 <script setup lang="ts">
-import EquilateralTriangle from './EquilateralTriangle.vue'
+import EquilateralTriangle from "./EquilateralTriangle.vue";
+import { useBackTop } from "../stores/backTop";
+const goTop = () => {
+  const service = useBackTop();
+  service.goTop();
+};
 </script>
 <template>
-  <div class="menu">
-    <EquilateralTriangle :rotate="-90" />
+  <div class="topper central" @click="goTop">
+    <EquilateralTriangle />
   </div>
 </template>
 
 <style scoped>
-.menu {
+.topper {
+  background-color: #fff;
   cursor: pointer;
   width: 10vw;
   height: 10vw;
   border-radius: 50%;
   box-shadow: 0 0 20px #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   z-index: 100;
   position: fixed;
   right: 6vw;
-  bottom: 20vw;
+  bottom: 6vw;
 }
 </style>

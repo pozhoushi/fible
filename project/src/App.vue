@@ -10,20 +10,24 @@ import HelloWorld from './components/HelloWorld.vue'
 </template> -->
 
 <script setup lang="ts">
-import Menu from './components/Menu.vue'
-import Topper from './components/Topper.vue'
+import { ref } from "vue";
+import Menu from "./components/Menu.vue";
+import Topper from "./components/Topper.vue";
+import Catalog from "./components/Catalog.vue";
+const CatalogShow = ref(false);
+const toggleCatalog = () => CatalogShow.value = !CatalogShow.value
 </script>
 
 <template>
   <router-view></router-view>
-  <Menu />
+  <Menu @toggleCatalog="toggleCatalog" />
   <Topper />
+  <Catalog @toggleCatalog="toggleCatalog" v-if="CatalogShow" />
 </template>
 
-
 <style>
-@import './assets/base.css';
-#app{
+@import "./assets/base.css";
+#app {
   width: 100%;
   height: 100%;
 }

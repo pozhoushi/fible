@@ -1,8 +1,6 @@
 import Front from './views/Front.vue'
-import Menu from './components/Menu.vue'
-import Topper from './components/Topper.vue'
+import js from './views/js.vue'
 export const routes = [
   { path: '/', component: Front },
-  { path: '/b', component: Menu },
-  { path: '/c', component: Topper }
+  { path: '/js', component: js },
 ]
